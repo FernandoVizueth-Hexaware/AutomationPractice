@@ -62,10 +62,10 @@ public class AutomationWomenCloth {
 	@FindBy(id = "group_1")
 	WebElement dropdownSize;
 	
-	public void selectSize()
+	public void selectSize(String size)
 	{
 		Select dropdown = new Select(dropdownSize);
-		dropdown.selectByVisibleText("L");
+		dropdown.selectByVisibleText(size);
 	}
 	
 	@FindBy(id = "color_14")

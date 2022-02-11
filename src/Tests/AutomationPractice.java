@@ -208,11 +208,9 @@ public class AutomationPractice extends Utils{
 		
 		//System.out.println(" 1");
 		AutomationHome autoHome = new AutomationHome(driver);
-		//System.out.println(" 2");
 		AutomationWomenCloth autoCloth = new AutomationWomenCloth(driver);
 		AutomationCheckOut autoChOut = new AutomationCheckOut(driver);
 		AutomationLogin autoLogin = new AutomationLogin(driver);
-		//System.out.println(" 3");
 		
 		try {
 			Thread.sleep(2000);
@@ -228,7 +226,7 @@ public class AutomationPractice extends Utils{
 		autoCloth.clickMoreButton().click();
 		autoCloth.enterIncreaseQuantity().clear();
 		autoCloth.enterIncreaseQuantity().sendKeys("2");;
-		autoCloth.selectSize();
+		autoCloth.selectSize("L");
 		autoCloth.clickColor().click();
 		autoCloth.clickAddToCart().click();
 		autoCloth.clickproceedToCheckout().click();
@@ -275,6 +273,43 @@ public class AutomationPractice extends Utils{
 			e.printStackTrace();
 		}
 		Assert.assertTrue(autoCloth.getManageWishlistError().isDisplayed());
+		
+	}
+	
+	@Test
+	public void verifyTotalPriceChange() throws IOException {
+		
+		driver=initializeDriver();
+		
+		AutomationHome autoHome = new AutomationHome(driver);
+		AutomationWomenCloth autoCloth = new AutomationWomenCloth(driver);
+		AutomationCheckOut autoChOut = new AutomationCheckOut(driver);
+		AutomationLogin autoLogin = new AutomationLogin(driver);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//System.out.println(" 4");
+		autoHome.mouseOverWomenButton(driver);
+		autoHome.clickWomenTshirts().click();
+		autoCloth.mouseOverShirt(driver);
+		autoCloth.clickMoreButton().click();
+		autoCloth.enterIncreaseQuantity().clear();
+		autoCloth.enterIncreaseQuantity().sendKeys("1");;
+		autoCloth.selectSize("M");
+		autoCloth.clickColor().click();
+		autoCloth.clickAddToCart().click();
+		autoCloth.clickproceedToCheckout().click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

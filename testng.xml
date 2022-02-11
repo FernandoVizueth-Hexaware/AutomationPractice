@@ -7,7 +7,7 @@
     <classes>
       <class name="Tests.AutomationPractice">
       	<methods>
-      		<include name = "addToWishlistError" />
+      		<include name = "verifyTotalPriceChange" />
       	</methods>
       </class>
       <!-- class name="Tests.Test1"/-->
