@@ -56,4 +56,20 @@ public class AutomationCheckOut {
 		return quantityOfProduct;
 	}
 	
+	@FindBy(id = "total_product")
+	WebElement totalProduct;
+	
+	public WebElement getTotalAmountProduct()
+	{
+		return totalProduct;
+	}
+	
+	@FindBy(css = "input[name='quantity_1_4_0_0']")
+	WebElement increaseQuantityTextBox;
+	
+	public WebElement enterIncreaseQuantity()
+	{
+		return increaseQuantityTextBox;
+	}
+	
 }

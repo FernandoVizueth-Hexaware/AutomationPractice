@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -304,12 +305,30 @@ public class AutomationPractice extends Utils{
 		autoCloth.clickColor().click();
 		autoCloth.clickAddToCart().click();
 		autoCloth.clickproceedToCheckout().click();
+		System.out.println("Despues del proceed to checkout");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		String firstAmount = autoChOut.getTotalAmountProduct().getText();
+		System.out.println("Despues del primer getamount");
+		autoChOut.enterIncreaseQuantity().clear();
+		autoChOut.enterIncreaseQuantity().sendKeys("2");
+		autoChOut.enterIncreaseQuantity().sendKeys(Keys.ENTER);
+		System.out.println("Despues del increasequantity");
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String secondAmount = autoChOut.getTotalAmountProduct().getText();
+		System.out.println("Despues del gettext");
+		System.out.println("First "+firstAmount);
+		System.out.println("Second "+secondAmount);
+		Assert.assertNotEquals(firstAmount, secondAmount);
 		
 	}
 	

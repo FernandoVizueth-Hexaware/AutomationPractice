@@ -8,7 +8,7 @@
       <class name="Tests.AutomationPractice">
         <methods>
           <include name="AfterTest"/>
-          <include name="addToWishlistError"/>
+          <include name="verifyTotalPriceChange"/>
         </methods>
       </class> <!-- Tests.AutomationPractice -->
     </classes>
