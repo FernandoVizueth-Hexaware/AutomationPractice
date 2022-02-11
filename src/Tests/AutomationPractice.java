@@ -304,8 +304,15 @@ public class AutomationPractice extends Utils{
 		autoCloth.selectSize("M");
 		autoCloth.clickColor().click();
 		autoCloth.clickAddToCart().click();
+		//System.out.println("Despues del addtocart");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		autoCloth.clickproceedToCheckout().click();
-		System.out.println("Despues del proceed to checkout");
+		//System.out.println("Despues del proceed to checkout");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -313,11 +320,11 @@ public class AutomationPractice extends Utils{
 			e.printStackTrace();
 		}
 		String firstAmount = autoChOut.getTotalAmountProduct().getText();
-		System.out.println("Despues del primer getamount");
+		//System.out.println("Despues del primer getamount");
 		autoChOut.enterIncreaseQuantity().clear();
 		autoChOut.enterIncreaseQuantity().sendKeys("2");
 		autoChOut.enterIncreaseQuantity().sendKeys(Keys.ENTER);
-		System.out.println("Despues del increasequantity");
+		//System.out.println("Despues del increasequantity");
 		try {
 			Thread.sleep(6000);
 		} catch (InterruptedException e) {
@@ -325,10 +332,19 @@ public class AutomationPractice extends Utils{
 			e.printStackTrace();
 		}
 		String secondAmount = autoChOut.getTotalAmountProduct().getText();
-		System.out.println("Despues del gettext");
-		System.out.println("First "+firstAmount);
-		System.out.println("Second "+secondAmount);
+		//System.out.println("Despues del gettext");
+		System.out.println("sFirst "+firstAmount);
+		System.out.println("sSecond "+secondAmount);
+		firstAmount = firstAmount.replace("$", "");
+		secondAmount = secondAmount.replace("$", "");
+		float amount1 = Float.parseFloat(firstAmount);
+		float amount2 = Float.parseFloat(secondAmount);
+		float amountexpected = amount1 * 2;
+		System.out.println("fFirst "+amount1);
+		System.out.println("fSecond "+amount2);
+		System.out.println("fExpected "+amountexpected);
 		Assert.assertNotEquals(firstAmount, secondAmount);
+		Assert.assertEquals(amount2, amountexpected);
 		
 	}
 	

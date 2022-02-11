@@ -84,7 +84,7 @@ public class AutomationWomenCloth {
 		return addToCartButton;
 	}
 	
-	@FindBy(xpath = "//*[contains(text(),'Proceed to checkout')]")
+	@FindBy(xpath = "//*[@title='Proceed to checkout']")
 	WebElement proceedToCheckoutButton;
 	
 	public WebElement clickproceedToCheckout()
